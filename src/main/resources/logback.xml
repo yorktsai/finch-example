@@ -1,0 +1,22 @@
+<configuration scan="true" scanPeriod="30 seconds">
+  <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+    <resetJUL>true</resetJUL>
+  </contextListener>
+
+  <appender name="console-appender" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d %level %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="application-appender" class="ch.qos.logback.core.FileAppender">
+    <encoder>
+      <pattern>%d %level %msg%n</pattern>
+    </encoder>
+    <file>application.log</file>
+  </appender>
+
+  <root level="info">
+    <appender-ref ref="application-appender"/>
+  </root>
+</configuration>
